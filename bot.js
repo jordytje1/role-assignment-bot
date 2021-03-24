@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const {prefix, token} = require('./auth.json');
+const {prefix, token} = require('./config.json');
 const config = require('./config.json');
 const emojiRegex = /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])\s*<@&[0-9]+>/gi;
 const customRegex = /<:[\w-]+:[0-9]+>\s*<@&[0-9]+>/gi;
@@ -13,7 +13,7 @@ client.once('ready', () => {
     .catch(console.error);
  });
  
- client.login(token);
+client.login(process.env.BOT_TOKEN);
 
  /**Prints the join message */
  client.on('guildCreate', guild => {
